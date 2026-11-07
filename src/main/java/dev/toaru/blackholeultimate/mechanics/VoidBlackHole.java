@@ -6,6 +6,7 @@ import dev.toaru.blackholeultimate.net.FxType;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.phys.Vec3;
 import io.github.pinchan4273.reacademycraft.api.AbilityId;
+import io.github.pinchan4273.reacademycraft.api.mc.AbilityActor;
 
 /** Void Black Hole (Level 5 - Ultimate) - True damage, massive radius, devouring everything. */
 public final class VoidBlackHole extends BlackHoleBase {
@@ -39,7 +40,7 @@ public final class VoidBlackHole extends BlackHoleBase {
 
     @Override
     protected void applyEntityEffects(net.minecraft.server.level.ServerLevel level, Vec3 centre, double pullR, double horizon,
-                                      double ramp, int activeAge, var actor, State s, ActivationContext c) {
+                                      double ramp, int activeAge, AbilityActor actor, State s, ActivationContext c) {
         super.applyEntityEffects(level, centre, pullR, horizon, ramp, activeAge, actor, s, c);
 
         // Void tick: true damage (bypasses armor) to everything inside horizon

@@ -6,6 +6,7 @@ import dev.toaru.blackholeultimate.net.FxType;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.phys.Vec3;
 import io.github.pinchan4273.reacademycraft.api.AbilityId;
+import io.github.pinchan4273.reacademycraft.api.mc.AbilityActor;
 
 /** Quasar Black Hole (Level 4) - Emits a damaging beam while pulling. Hybrid offense. */
 public final class QuasarBlackHole extends BlackHoleBase {
@@ -39,7 +40,7 @@ public final class QuasarBlackHole extends BlackHoleBase {
 
     @Override
     protected void applyEntityEffects(net.minecraft.server.level.ServerLevel level, Vec3 centre, double pullR, double horizon,
-                                      double ramp, int activeAge, var actor, State s, ActivationContext c) {
+                                      double ramp, int activeAge, AbilityActor actor, State s, ActivationContext c) {
         super.applyEntityEffects(level, centre, pullR, horizon, ramp, activeAge, actor, s, c);
 
         // Quasar beam: damages in a line from centre to furthest affected entity
@@ -52,7 +53,7 @@ public final class QuasarBlackHole extends BlackHoleBase {
                 Vec3 to = Targeting.centre(le).subtract(centre);
                 double d = to.length();
                 if (d > beamRange) continue;
-                var safety = io.github.pinchan4273.reacademycraft.api.mc.AcademySafety.attack(actor, le, getAbilityId(), (float) beamDmg);
+                boolean safety = io.github.pinchan4273.reacademycraft.api.mc.AcademySafety.attack(actor, le, getAbilityId(), (float) beamDmg);
                 if (safety) c.addProficiency(0.002f);
             }
         }

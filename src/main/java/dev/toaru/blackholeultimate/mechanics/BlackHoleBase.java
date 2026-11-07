@@ -7,6 +7,7 @@ import io.github.pinchan4273.reacademycraft.api.ActivationOutcome;
 import io.github.pinchan4273.reacademycraft.api.StopReason;
 import io.github.pinchan4273.reacademycraft.api.mc.AcademySafety;
 import io.github.pinchan4273.reacademycraft.api.mc.ActivationContext;
+import io.github.pinchan4273.reacademycraft.api.mc.AbilityActor;
 import io.github.pinchan4273.reacademycraft.api.mc.SkillBehavior;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -93,7 +94,7 @@ public abstract class BlackHoleBase implements SkillBehavior {
         if (p == null || s == null || age >= totalTicks()) return false;
 
         ServerLevel level = p.serverLevel();
-        var actor = c.actor();
+        AbilityActor actor = c.actor();
         Vec3 centre = s.centre;
         double pullR = getPullRadius().get();
         double horizon = getHorizonRadius().get();
@@ -129,7 +130,7 @@ public abstract class BlackHoleBase implements SkillBehavior {
     }
 
     protected void validateTargets(ServerLevel level, Vec3 centre, double pullR, ServerPlayer p,
-                                   var actor, State s) {
+                                   AbilityActor actor, State s) {
         s.affectedEntities.clear();
         s.affectedProjectiles.clear();
 
@@ -149,7 +150,7 @@ public abstract class BlackHoleBase implements SkillBehavior {
     }
 
     protected void applyEntityEffects(ServerLevel level, Vec3 centre, double pullR, double horizon,
-                                      double ramp, int activeAge, var actor, State s, ActivationContext c) {
+                                      double ramp, int activeAge, AbilityActor actor, State s, ActivationContext c) {
         double pullStr = getPullStrength().get();
         double swirlStr = Cfg.SWIRL.get();
         double maxSpd = getMaxSpeed().get();
@@ -222,7 +223,7 @@ public abstract class BlackHoleBase implements SkillBehavior {
     }
 
     protected void collapse(ActivationContext c, ServerPlayer p, State s, ServerLevel level) {
-        var actor = c.actor();
+        AbilityActor actor = c.actor();
         double radius = getBlastRadius().get();
         double dmg = getBlastDamage().get();
         double kb = getBlastKnockback().get();

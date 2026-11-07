@@ -6,6 +6,7 @@ import dev.toaru.blackholeultimate.net.FxType;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.phys.Vec3;
 import io.github.pinchan4273.reacademycraft.api.AbilityId;
+import io.github.pinchan4273.reacademycraft.api.mc.AbilityActor;
 
 /** Gravitational Wave (Level 3) - Emits expanding rings of force damage and knockback. */
 public final class GravitationalWave extends BlackHoleBase {
@@ -39,7 +40,7 @@ public final class GravitationalWave extends BlackHoleBase {
 
     @Override
     protected void validateTargets(net.minecraft.server.level.ServerLevel level, Vec3 centre, double pullR, net.minecraft.server.level.ServerPlayer p,
-                                   var actor, State s) {
+                                   AbilityActor actor, State s) {
         s.affectedEntities.clear();
         for (net.minecraft.world.entity.LivingEntity e : Targeting.livingWithin(level, centre, pullR, p)) {
             if (Targeting.hostile(actor, e, getAbilityId()) && !s.originalMotions.containsKey(e.getUUID())) {
@@ -51,7 +52,7 @@ public final class GravitationalWave extends BlackHoleBase {
 
     @Override
     protected void applyEntityEffects(net.minecraft.server.level.ServerLevel level, Vec3 centre, double pullR, double horizon,
-                                      double ramp, int activeAge, var actor, State s, ActivationContext c) {
+                                      double ramp, int activeAge, AbilityActor actor, State s, ActivationContext c) {
         // Gravitational Wave emits waves every few ticks
         int waveCount = Cfg.GW_WAVES.get().intValue();
         int waveDelay = Cfg.ticks(Cfg.GW_DELAY);
@@ -93,7 +94,7 @@ public final class GravitationalWave extends BlackHoleBase {
     @Override
     protected void collapse(ActivationContext c, net.minecraft.server.level.ServerPlayer p, State s, net.minecraft.server.level.ServerLevel level) {
         // Final massive wave
-        var actor = c.actor();
+        AbilityActor actor = c.actor();
         double radius = getBlastRadius().get();
         double dmg = getBlastDamage().get() * 1.5;
         double kb = getBlastKnockback().get() * 1.5;

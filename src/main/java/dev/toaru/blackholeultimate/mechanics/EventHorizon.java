@@ -6,6 +6,7 @@ import dev.toaru.blackholeultimate.net.FxType;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.phys.Vec3;
 import io.github.pinchan4273.reacademycraft.api.AbilityId;
+import io.github.pinchan4273.reacademycraft.api.mc.AbilityActor;
 
 /** Event Horizon (Level 4) - Defensive zone. Slows projectiles, reflects damage, protects allies. */
 public final class EventHorizon extends BlackHoleBase {
@@ -39,7 +40,7 @@ public final class EventHorizon extends BlackHoleBase {
 
     @Override
     protected void validateTargets(net.minecraft.server.level.ServerLevel level, Vec3 centre, double pullR, net.minecraft.server.level.ServerPlayer p,
-                                   var actor, State s) {
+                                   AbilityActor actor, State s) {
         // Event Horizon affects ALL entities (not just hostile) - it's a zone
         s.affectedEntities.clear();
         s.affectedProjectiles.clear();
@@ -61,7 +62,7 @@ public final class EventHorizon extends BlackHoleBase {
 
     @Override
     protected void applyEntityEffects(net.minecraft.server.level.ServerLevel level, Vec3 centre, double pullR, double horizon,
-                                      double ramp, int activeAge, var actor, State s, ActivationContext c) {
+                                      double ramp, int activeAge, AbilityActor actor, State s, ActivationContext c) {
         double slowFactor = getPullStrength().get();
         double reflectChance = Cfg.EH_REFLECT_CHANCE.get();
 
@@ -97,7 +98,7 @@ public final class EventHorizon extends BlackHoleBase {
     @Override
     protected void collapse(ActivationContext c, net.minecraft.server.level.ServerPlayer p, State s, net.minecraft.server.level.ServerLevel level) {
         // Event Horizon just fades - no damaging blast
-        var actor = c.actor();
+        AbilityActor actor = c.actor();
         double radius = getBlastRadius().get();
 
         // Gentle push outward
