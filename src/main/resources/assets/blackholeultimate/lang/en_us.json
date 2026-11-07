@@ -1,0 +1,15 @@
+{
+  "ability.blackholeultimate.singularity": "Singularity",
+  "skill.blackholeultimate.black_hole_micro": "Micro Black Hole",
+  "skill.blackholeultimate.black_hole_micro.desc": "A tiny but fast singularity. Pulls enemies in a small radius. Cost: 1500 CP, 80 Overload. Cooldown: 30s.",
+  "skill.blackholeultimate.black_hole_classic": "Black Hole",
+  "skill.blackholeultimate.black_hole_classic.desc": "The classic singularity. Pulls, damages, and explodes. Cost: 5000 CP, 200 Overload. Cooldown: 120s.",
+  "skill.blackholeultimate.gravitational_wave": "Gravitational Wave",
+  "skill.blackholeultimate.gravitational_wave.desc": "Emits expanding waves of force. Damages and knocks back. Cost: 3500 CP, 120 Overload. Cooldown: 60s.",
+  "skill.blackholeultimate.black_hole_quasar": "Quasar",
+  "skill.blackholeultimate.black_hole_quasar.desc": "A beam-emitting black hole. Pulls while firing a damaging beam. Cost: 8000 CP, 300 Overload. Cooldown: 180s.",
+  "skill.blackholeultimate.event_horizon": "Event Horizon",
+  "skill.blackholeultimate.event_horizon.desc": "A protective temporal dome. Slows projectiles, reflects damage. Cost: 6000 CP, 200 Overload. Cooldown: 90s.",
+  "skill.blackholeultimate.black_hole_void": "Void Singularity",
+  "skill.blackholeultimate.black_hole_void.desc": "The ultimate singularity. True damage, massive radius, devours all. Cost: 12000 CP, 500 Overload. Cooldown: 300s."
+}

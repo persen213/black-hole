@@ -1,0 +1,18 @@
+package dev.toaru.blackholeultimate.net;
+
+/** Client visual effect types for all black hole variants. */
+public enum FxType {
+    MICRO_BLACK_HOLE,
+    MICRO_BLACK_HOLE_COLLAPSE,
+    CLASSIC_BLACK_HOLE,
+    CLASSIC_BLACK_HOLE_COLLAPSE,
+    QUASAR_BLACK_HOLE,
+    QUASAR_BLACK_HOLE_COLLAPSE,
+    VOID_BLACK_HOLE,
+    VOID_BLACK_HOLE_COLLAPSE,
+    EVENT_HORIZON,
+    EVENT_HORIZON_COLLAPSE,
+    GRAVITATIONAL_WAVE,
+    GRAVITATIONAL_WAVE_COLLAPSE,
+    GRAVITATIONAL_WAVE_RIPPLE
+}

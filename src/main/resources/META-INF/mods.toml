@@ -1,0 +1,28 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="MIT"
+issueTrackerURL="https://github.com"
+
+[[mods]]
+modId="blackholeultimate"
+version="${file.jarVersion}"
+displayName="Black Hole Ultimate"
+description="Re:AcademyCraft add-on: 6 unique black hole abilities across 4 levels with stunning visuals and physics."
+authors="toaru"
+displayURL="https://github.com"
+credits="Re:AcademyCraft by pinchan4273"
+logoFile=""
+
+[[dependencies.blackholeultimate]]
+modId="forge"
+mandatory=true
+versionRange="[47.4.10,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.blackholeultimate]]
+modId="reacademycraft"
+mandatory=true
+versionRange="[1.5.0,)"
+ordering="AFTER"
+side="BOTH"
